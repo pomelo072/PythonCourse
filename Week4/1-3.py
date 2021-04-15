@@ -10,8 +10,13 @@ def find_fox():
         if find == fox:
             print("找到了, 小狐狸在{}洞".format(find))
             break
-        hole_next = [hole[fox - 2], hole[fox]]
-        fox = rd.choice(hole_next)
+        if fox == 1:
+            fox = 2
+        elif fox == 5:
+            fox = 4
+        else:
+            hole_next = [hole[fox - 2], hole[fox]]
+            fox = rd.choice(hole_next)
 
 
 if __name__ == '__main__':
