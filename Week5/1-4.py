@@ -19,11 +19,14 @@ class Account:
         if currency == "":
             currency = "人民币"
         if (bus > 0 and tips == "转入") or (bus < 0 and tips in ["消费", "网转"]):
-            self.money += bus
-            now_money = self.money
-            new_record = [date, tips, bus, currency, now_money]
-            self.record.append(new_record)
-            print("交易成功")
+            if self.money + bus < 0:
+                print("交易失败")
+            else:
+                self.money += bus
+                now_money = self.money
+                new_record = [date, tips, bus, currency, now_money]
+                self.record.append(new_record)
+                print("交易成功")
         else:
             print("交易失败")
 
