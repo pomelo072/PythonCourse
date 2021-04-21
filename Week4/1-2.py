@@ -10,6 +10,8 @@ def redbag(total=100, num=15):
         money = round(rd.uniform(0.01, total/(num - i)), 2)
         bag.append(money)
         total -= money
+    # 打乱列表
+    rd.shuffle(bag)
     return bag
 
 
